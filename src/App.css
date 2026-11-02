@@ -1,0 +1,173 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'DM Sans', sans-serif; background: #f6f7fb; color: #24243d; }
+button, input, textarea, select { font: inherit; }
+button { cursor: pointer; }
+
+.auth-page {
+  min-height: 100vh; display: grid; place-items: center; padding: 20px;
+  background: linear-gradient(135deg, #15162f, #373064, #7561c8);
+}
+.auth-card {
+  background: white; width: 100%; max-width: 430px; padding: 38px;
+  border-radius: 24px; box-shadow: 0 25px 80px #10102755; text-align: center;
+}
+.logo-mark {
+  display: inline-grid; place-items: center; width: 43px; height: 43px;
+  border-radius: 13px; color: white; background: linear-gradient(135deg,#6857d9,#a17be9);
+  font-size: 25px; margin-right: 9px;
+}
+.auth-card > .logo-mark { width: 60px; height: 60px; font-size: 32px; margin: 0 auto 14px; }
+.auth-card h1 { font: 800 30px 'Plus Jakarta Sans'; }
+.muted { color: #9291a4; font-size: 13px; margin: 9px 0 25px; }
+.auth-tabs { display: flex; background: #f0eff8; padding: 5px; border-radius: 11px; margin-bottom: 22px; }
+.auth-tabs button { flex: 1; border: 0; background: transparent; padding: 11px; border-radius: 8px; color: #77758d; font-weight: 700; }
+.auth-tabs button.selected { background: white; color: #6e5ce7; box-shadow: 0 3px 12px #28205012; }
+.auth-card form { text-align: left; }
+.auth-card label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 16px; }
+.auth-card input, .note-form input, .note-form textarea, .visibility-label select {
+  display: block; width: 100%; margin-top: 8px; padding: 13px;
+  border: 1px solid #e7e6ef; border-radius: 10px; background: #fbfbfe; outline: none;
+}
+input:focus, textarea:focus, select:focus { border-color: #8875e9 !important; box-shadow: 0 0 0 3px #8875e91a; }
+.primary-btn {
+  border: 0; border-radius: 10px; color: white; padding: 12px 20px;
+  background: linear-gradient(110deg,#6e5ce7,#9270e9); font-weight: 700;
+}
+.primary-btn:hover { filter: brightness(1.06); transform: translateY(-1px); }
+.primary-btn:disabled { opacity: .6; cursor: wait; }
+.full { width: 100%; margin-top: 5px; }
+.auth-foot { color: #a09eaf; font-size: 12px; margin-top: 22px; }
+
+.toast {
+  position: fixed; top: 20px; right: 22px; z-index: 1000; max-width: calc(100vw - 40px);
+  padding: 15px 21px; border-radius: 12px; font-weight: 700; font-size: 13px;
+  box-shadow: 0 12px 35px #17172c25; animation: slide .25s ease;
+}
+.toast.success { color: #187943; background: #effbf4; border: 1px solid #b9edce; }
+.toast.error { color: #bd3434; background: #fff1f1; border: 1px solid #f4c6c6; }
+@keyframes slide { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: translateY(0); } }
+
+.layout { min-height: 100vh; }
+.sidebar {
+  position: fixed; inset: 0 auto 0 0; width: 255px; padding: 27px 17px;
+  background: #191a35; color: white; display: flex; flex-direction: column; z-index: 5;
+}
+.brand { display: flex; align-items: center; font: 800 21px 'Plus Jakarta Sans'; margin: 0 0 43px 5px; }
+.nav-caption { color: #8585a8; font-size: 10px; letter-spacing: 1.5px; font-weight: 800; margin: 0 0 13px 10px; }
+.sidebar nav { display: grid; gap: 5px; }
+.nav-item {
+  width: 100%; border: 0; background: transparent; color: #c2c2d6;
+  padding: 12px 11px; border-radius: 9px; display: flex; align-items: center;
+  gap: 12px; text-align: left; font-size: 13px;
+}
+.nav-item > span { width: 22px; text-align: center; font-size: 16px; }
+.nav-item small { margin-left: auto; color: #aaa7c5; font-size: 10px; }
+.nav-item:hover, .nav-item.active { background: #35345c; color: white; }
+.sidebar-user { margin-top: auto; border-top: 1px solid #34354f; padding-top: 16px; display: flex; align-items: center; gap: 9px; }
+.avatar {
+  width: 39px; height: 39px; border-radius: 50%; display: grid; place-items: center;
+  flex-shrink: 0; background: #8c75e9; color: white; font-weight: 800;
+}
+.user-info { min-width: 0; display: grid; gap: 3px; }
+.user-info strong { font-size: 12px; }
+.user-info small { color: #aaa8bf; font-size: 10px; overflow-wrap: anywhere; }
+.logout-icon { margin-left: auto; border: 0; background: #35345c; color: white; border-radius: 8px; padding: 8px 10px; }
+
+.main { margin-left: 255px; padding: 32px 40px; max-width: 1600px; }
+.topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 27px; }
+.eyebrow { color: #8d80c9; font-size: 10px; letter-spacing: 1.5px; font-weight: 800; margin-bottom: 7px; }
+.topbar h1 { font: 800 25px 'Plus Jakarta Sans'; }
+.top-user { display: flex; align-items: center; gap: 17px; color: #88879b; font-size: 12px; }
+
+.welcome {
+  display: flex; align-items: center; justify-content: space-between; overflow: hidden;
+  padding: 30px 34px; border-radius: 18px; color: white;
+  background: linear-gradient(110deg,#5548ad,#806be0); box-shadow: 0 12px 25px #5a48b423;
+}
+.eyebrow.light { color: #e3dcff; }
+.welcome h2 { font: 700 23px 'Plus Jakarta Sans'; margin: 10px 0 7px; }
+.welcome p { color: #e9e4ff; font-size: 13px; }
+.welcome-art { font-size: 100px; opacity: .3; padding-right: 25px; }
+.welcome-btn { margin-top: 18px; border: 0; border-radius: 8px; padding: 10px 15px; color: #5b4bb0; background: white; font-size: 12px; font-weight: 800; }
+
+.stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 15px; margin: 22px 0 34px; }
+.stat { background: white; border: 1px solid #eeedf5; border-radius: 13px; padding: 18px; display: grid; gap: 7px; }
+.stat span { font-size: 20px; }
+.stat small { color: #89889b; font-size: 11px; }
+.stat strong { font: 800 23px 'Plus Jakarta Sans'; }
+
+.section-title { display: flex; justify-content: space-between; align-items: center; gap: 15px; margin: 25px 0 17px; }
+.section-title h2 { font: 700 18px 'Plus Jakarta Sans'; }
+.section-title p { color: #9291a4; font-size: 12px; margin-top: 5px; }
+.text-btn { border: 0; background: transparent; color: #715ed7; font-weight: 700; font-size: 12px; }
+.create-panel { background: white; padding: 20px; border: 1px solid #eeedf5; border-radius: 15px; }
+.create-panel .section-title { margin: 0 0 14px; }
+.note-form { display: grid; gap: 12px; }
+.note-form input, .note-form textarea { margin: 0; resize: vertical; }
+.note-form textarea { min-height: 95px; }
+.form-bottom { display: flex; justify-content: space-between; align-items: end; gap: 15px; }
+.visibility-label { display: block; width: min(330px,100%); color: #77758d; font-size: 11px; font-weight: 700; }
+.visibility-label select { color: #38364f; font-size: 12px; }
+.form-buttons { display: flex; gap: 8px; }
+.secondary-btn { border: 0; border-radius: 9px; background: #f0eff7; padding: 11px 15px; color: #55536e; }
+
+.notes-heading { margin-top: 35px; }
+.search { width: 240px; border: 1px solid #e7e6ef; border-radius: 10px; background: white; padding: 11px 13px; outline: none; }
+.notes-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; }
+.note-card { background: white; border: 1px solid #eeedf5; border-radius: 14px; padding: 18px; min-height: 190px; display: flex; flex-direction: column; overflow-wrap: anywhere; transition: .2s; }
+.note-card:hover { transform: translateY(-3px); box-shadow: 0 10px 25px #28235010; }
+.note-card-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.note-type { color: #7770b2; background: #f1efff; padding: 5px 8px; border-radius: 20px; font-size: 10px; font-weight: 700; }
+.note-star { color: #e5a52b; }
+.note-card h3 { font-size: 15px; margin-bottom: 9px; }
+.note-description { color: #85849a; font-size: 12px; line-height: 1.7; white-space: pre-wrap; }
+.note-author { color: #8a78d4; font-size: 10px; margin-top: 9px; }
+.note-meta { margin-top: auto; padding-top: 16px; display: flex; justify-content: space-between; align-items: center; color: #aaa8b8; font-size: 10px; gap: 8px; }
+.note-actions { display: flex; gap: 5px; }
+.note-actions button { width: 27px; height: 27px; border: 0; border-radius: 7px; background: #f2f0fb; color: #7564cf; font-size: 15px; }
+.note-actions button:hover { background: #e5e0ff; }
+.empty { text-align: center; background: white; border: 1px dashed #dcd9ed; border-radius: 14px; padding: 55px 20px; }
+.empty div { color: #9685e8; font-size: 35px; margin-bottom: 10px; }
+.empty h3 { font-size: 16px; }
+.empty p { color: #9291a4; font-size: 12px; margin-top: 7px; }
+
+.profile-panel { background: white; border: 1px solid #eeedf5; border-radius: 17px; padding: 35px; max-width: 650px; text-align: center; }
+.profile-large { margin: auto auto 15px; width: 75px; height: 75px; display: grid; place-items: center; border-radius: 50%; background: #806be0; color: white; font-size: 30px; font-weight: 800; }
+.profile-panel h2 { font: 700 22px 'Plus Jakarta Sans'; }
+.profile-panel > p { color: #9291a4; font-size: 13px; margin-top: 5px; }
+.profile-details { margin: 25px 0; text-align: left; border-top: 1px solid #eee; }
+.profile-details div { display: flex; justify-content: space-between; padding: 14px 3px; border-bottom: 1px solid #eee; font-size: 13px; }
+.profile-details span { color: #88879b; }
+.danger-btn { border: 0; border-radius: 9px; padding: 12px 18px; color: white; background: #d94c58; font-weight: 700; }
+
+@media (max-width: 1100px) {
+  .main { padding: 27px 23px; }
+  .notes-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .stats-grid { grid-template-columns: repeat(2,1fr); }
+}
+@media (max-width: 700px) {
+  .sidebar { position: relative; width: 100%; padding: 15px; }
+  .brand { margin: 0 0 14px; }
+  .nav-caption { display: none; }
+  .sidebar nav { display: flex; overflow-x: auto; padding-bottom: 7px; }
+  .nav-item { width: auto; flex-shrink: 0; white-space: nowrap; }
+  .nav-item small { display: none; }
+  .sidebar-user { margin-top: 10px; }
+  .main { margin: 0; padding: 20px 14px; }
+  .notes-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: repeat(2,1fr); }
+  .welcome { padding: 22px; }
+  .welcome h2 { font-size: 19px; }
+  .welcome-art { font-size: 55px; padding: 0; }
+  .top-user > span { display: none; }
+  .section-title { align-items: flex-start; }
+  .notes-heading { flex-direction: column; }
+  .search { width: 100%; }
+  .form-bottom { align-items: stretch; flex-direction: column; }
+  .visibility-label { width: 100%; }
+  .form-buttons { justify-content: flex-end; }
+  .toast { top: 10px; left: 10px; right: 10px; text-align: center; }
+}
